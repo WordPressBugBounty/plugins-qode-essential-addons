@@ -4,7 +4,7 @@ Tags: addons, elementor, templates, portfolio, woocommerce
 Requires at least: 5.0
 Tested up to: 6.6
 Requires PHP: 5.6
-Stable tag: 1.6.3
+Stable tag: 1.6.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -42,6 +42,12 @@ Feel free to try out some of our other products:
 <a href="https://wordpress.org/plugins/qode-wishlist-for-woocommerce/">QODE Wishlist for WooCommerce</a>
 <a href="https://wordpress.org/plugins/qode-quick-view-for-woocommerce/">QODE Quick View for WooCommerce</a>
 
+== Frequently Asked Questions ==
+
+= How can I report security bugs? =
+
+You can report security bugs through the Patchstack Vulnerability Disclosure Program. The Patchstack team help validate, triage and handle any security vulnerabilities. [Report a security vulnerability.](https://patchstack.com/database/vdp/qode-essential-addons)
+
 == Installation ==
 
 = Minimum Requirements =
@@ -74,9 +80,12 @@ From wordpress.org
 
 == Changelog ==
 
+= 1.6.4 - 25-09-2024 =
+- Improved Cross Site Scripting (XSS) vulnerability
+
 = 1.6.3 - 11-09-2024 =
 - Minor improvements
-- Fix swiper on import page
+- Fixed Swiper slider on import page
 
 = 1.6.2 - 22-07-2024 =
 - Improved admin tabs scrolling

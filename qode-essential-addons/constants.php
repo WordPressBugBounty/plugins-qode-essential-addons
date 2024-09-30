@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'QODE_ESSENTIAL_ADDONS_VERSION', '1.6.3' );
+define( 'QODE_ESSENTIAL_ADDONS_VERSION', '1.6.4' );
 define( 'QODE_ESSENTIAL_ADDONS_ABS_PATH', __DIR__ );
 define( 'QODE_ESSENTIAL_ADDONS_REL_PATH', dirname( plugin_basename( __FILE__ ) ) );
 define( 'QODE_ESSENTIAL_ADDONS_URL_PATH', plugin_dir_url( __FILE__ ) );

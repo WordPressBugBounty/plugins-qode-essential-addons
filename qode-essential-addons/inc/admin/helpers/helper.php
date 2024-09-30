@@ -127,6 +127,14 @@ if ( ! function_exists( 'qode_essential_addons_framework_get_template_with_slug'
 		$template = '';
 
 		if ( ! empty( $temp ) ) {
+			$available_characters = '/[^A-Za-z0-9\_\-\/]/';
+
+			if ( is_scalar( $slug ) ) {
+				$slug = preg_replace( $available_characters, '', $slug );
+			} else {
+				$slug = '';
+			}
+
 			if ( ! empty( $slug ) ) {
 				$template = "{$temp}-{$slug}.php";
 

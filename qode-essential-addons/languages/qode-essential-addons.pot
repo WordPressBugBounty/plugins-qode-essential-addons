@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Qode Essential Addons plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Qode Essential Addons 1.6.3\n"
+"Project-Id-Version: Qode Essential Addons 1.6.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/qode-essential-addons\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-09-11T11:39:53+00:00\n"
+"POT-Creation-Date: 2024-09-25T13:37:46+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: qode-essential-addons\n"
@@ -56,7 +56,7 @@ msgid "Global Theme Options"
 msgstr ""
 
 #: helpers/helper.php:614
-#: inc/admin/helpers/helper.php:1095
+#: inc/admin/helpers/helper.php:1103
 #: inc/admin/inc/common/core/class-qodeessentialaddons-framework-options.php:147
 #: inc/admin/inc/fonts/helper.php:116
 #: inc/admin/inc/sidebar/class-qodeessentialaddons-framework-custom-sidebar.php:179
