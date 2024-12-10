@@ -39,7 +39,10 @@ if ( ! function_exists( 'qode_essential_addons_add_mobile_header_options' ) ) {
 					'name'          => 'qodef_mobile_header_layout',
 					'title'         => esc_html__( 'Mobile Header Layout', 'qode-essential-addons' ),
 					'description'   => esc_html__( 'Choose a mobile header layout to set for your website', 'qode-essential-addons' ),
-					'args'          => array( 'images' => true ),
+					'args'          => array(
+						'images'       => true,
+						'custom_class' => 'qodef-large-img',
+					),
 					'default_value' => apply_filters( 'qode_essential_addons_filter_mobile_header_layout_default_option', '' ),
 					'options'       => apply_filters( 'qode_essential_addons_filter_mobile_header_layout_option', $mobile_header_layout_options = array() ),
 				)

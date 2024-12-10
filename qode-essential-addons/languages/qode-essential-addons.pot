@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Qode Essential Addons plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Qode Essential Addons 1.6.4\n"
+"Project-Id-Version: Qode Essential Addons 1.6.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/qode-essential-addons\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-09-25T13:37:46+00:00\n"
+"POT-Creation-Date: 2024-12-10T14:23:54+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: qode-essential-addons\n"
@@ -1364,7 +1364,7 @@ msgstr ""
 #: inc/fullscreen-menu/dashboard/admin/fullscreen-menu-typography-options.php:214
 #: inc/mobile-header/dashboard/admin/mobile-header-menu-options.php:44
 #: inc/mobile-header/dashboard/admin/mobile-header-menu-options.php:199
-#: inc/mobile-header/dashboard/admin/mobile-header-options.php:65
+#: inc/mobile-header/dashboard/admin/mobile-header-options.php:68
 #: inc/nav-menu/dashboard/admin/nav-menu-options.php:78
 #: inc/nav-menu/dashboard/admin/nav-menu-options.php:254
 #: inc/plugins/contact-form-7/dashboard/admin/contact-form-7-options.php:46
@@ -1408,7 +1408,7 @@ msgstr ""
 #: inc/fullscreen-menu/dashboard/admin/fullscreen-menu-typography-options.php:225
 #: inc/mobile-header/dashboard/admin/mobile-header-menu-options.php:55
 #: inc/mobile-header/dashboard/admin/mobile-header-menu-options.php:210
-#: inc/mobile-header/dashboard/admin/mobile-header-options.php:76
+#: inc/mobile-header/dashboard/admin/mobile-header-options.php:79
 #: inc/nav-menu/dashboard/admin/nav-menu-options.php:89
 #: inc/nav-menu/dashboard/admin/nav-menu-options.php:265
 #: inc/plugins/contact-form-7/dashboard/admin/contact-form-7-options.php:217
@@ -1523,7 +1523,7 @@ msgstr ""
 #: inc/header/top-area/dashboard/admin/top-area-options.php:127
 #: inc/header/top-area/dashboard/meta/top-header-meta.php:88
 #: inc/header/top-area/dashboard/meta/top-header-meta.php:129
-#: inc/mobile-header/dashboard/admin/mobile-header-options.php:90
+#: inc/mobile-header/dashboard/admin/mobile-header-options.php:93
 #: inc/mobile-header/dashboard/admin/mobile-logo-options.php:34
 #: inc/mobile-header/layouts/minimal/dashboard/admin/minimal-mobile-header-options.php:42
 #: inc/mobile-header/layouts/standard/dashboard/admin/standard-mobile-header-options.php:42
@@ -1568,7 +1568,7 @@ msgstr ""
 #: inc/elements/dashboard/admin/elements-options.php:1008
 #: inc/fullscreen-menu/dashboard/admin/fullscreen-menu-options.php:192
 #: inc/fullscreen-menu/dashboard/admin/fullscreen-menu-options.php:245
-#: inc/mobile-header/dashboard/admin/mobile-header-options.php:87
+#: inc/mobile-header/dashboard/admin/mobile-header-options.php:90
 #: inc/search/dashboard/admin/search-options.php:122
 #: inc/search/dashboard/admin/search-options.php:250
 #: inc/side-area/dashboard/admin/side-area-options.php:147
@@ -4150,7 +4150,7 @@ msgstr ""
 msgid "Choose a mobile header layout to set for your website"
 msgstr ""
 
-#: inc/mobile-header/dashboard/admin/mobile-header-options.php:51
+#: inc/mobile-header/dashboard/admin/mobile-header-options.php:54
 msgid "Mobile Header Open Icon Styles"
 msgstr ""
 

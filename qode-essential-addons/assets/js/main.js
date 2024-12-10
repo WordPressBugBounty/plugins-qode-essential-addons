@@ -504,33 +504,7 @@
 			}
 		},
 		animateScrollToTop: function () {
-			var startPos = qodefCore.scroll,
-				newPos   = qodefCore.scroll,
-				step     = .9,
-				animationFrameId;
-
-			var startAnimation = function () {
-				if ( 0 === newPos ) {
-					return;
-				}
-				newPos < 0.0001 ? newPos = 0 : null;
-
-				var ease = qodefBackToTop.easingFunction( (startPos - newPos) / startPos );
-				$( 'html, body' ).scrollTop( startPos - (startPos - newPos) * ease );
-				newPos = newPos * step;
-
-				animationFrameId = requestAnimationFrame( startAnimation );
-			};
-			startAnimation();
-			$( window ).one(
-				'wheel touchstart',
-				function () {
-					cancelAnimationFrame( animationFrameId );
-				}
-			);
-		},
-		easingFunction: function ( n ) {
-			return 0 === n ? 0 : Math.pow( 1024, n - 1 );
+			window.scrollTo( { top: 0, behavior: 'smooth' } );
 		},
 		showHideBackToTop: function () {
 			$( window ).scroll(
@@ -1420,51 +1394,6 @@
 
 	$( document ).ready(
 		function () {
-			qodefSearch.init();
-		}
-	);
-
-	var qodefSearch = {
-		init: function () {
-			this.search = $( 'a.qodef-search-opener' );
-
-			if ( this.search.length ) {
-				this.search.each(
-					function () {
-						var $thisSearch = $( this );
-
-						qodefSearch.searchHoverColor( $thisSearch );
-					}
-				);
-			}
-		},
-		searchHoverColor: function ( $searchHolder ) {
-			if ( typeof $searchHolder.data( 'hover-color' ) !== 'undefined' ) {
-				var hoverColor    = $searchHolder.data( 'hover-color' ),
-					originalColor = $searchHolder.css( 'color' );
-
-				$searchHolder.on(
-					'mouseenter',
-					function () {
-						$searchHolder.css( 'color', hoverColor );
-					}
-				).on(
-					'mouseleave',
-					function () {
-						$searchHolder.css( 'color', originalColor );
-					}
-				);
-			}
-		}
-	};
-
-})( jQuery );
-
-(function ( $ ) {
-	'use strict';
-
-	$( document ).ready(
-		function () {
 			qodefSearchCoversHeader.init();
 		}
 	);
@@ -1530,12 +1459,45 @@
 (function ( $ ) {
 	'use strict';
 
-	var shortcode = 'qode_essential_addons_product_list';
+	$( document ).ready(
+		function () {
+			qodefSearch.init();
+		}
+	);
 
-	qodefCore.shortcodes[shortcode]                      = {};
-	qodefCore.shortcodes[shortcode].qodefSwiper          = qodefCore.qodefSwiper;
-	qodefCore.shortcodes[shortcode].qodefFsLightboxPopup = qodefCore.qodefFsLightboxPopup;
-	qodefCore.shortcodes[shortcode].qodefMasonryLayout   = qodefCore.qodefMasonryLayout;
+	var qodefSearch = {
+		init: function () {
+			this.search = $( 'a.qodef-search-opener' );
+
+			if ( this.search.length ) {
+				this.search.each(
+					function () {
+						var $thisSearch = $( this );
+
+						qodefSearch.searchHoverColor( $thisSearch );
+					}
+				);
+			}
+		},
+		searchHoverColor: function ( $searchHolder ) {
+			if ( typeof $searchHolder.data( 'hover-color' ) !== 'undefined' ) {
+				var hoverColor    = $searchHolder.data( 'hover-color' ),
+					originalColor = $searchHolder.css( 'color' );
+
+				$searchHolder.on(
+					'mouseenter',
+					function () {
+						$searchHolder.css( 'color', hoverColor );
+					}
+				).on(
+					'mouseleave',
+					function () {
+						$searchHolder.css( 'color', originalColor );
+					}
+				);
+			}
+		}
+	};
 
 })( jQuery );
 
@@ -1575,5 +1537,17 @@
 	};
 
 	qodefCore.shortcodes[shortcode].qodefFloatingPortfolio = qodefFloatingPortfolio;
+
+})( jQuery );
+
+(function ( $ ) {
+	'use strict';
+
+	var shortcode = 'qode_essential_addons_product_list';
+
+	qodefCore.shortcodes[shortcode]                      = {};
+	qodefCore.shortcodes[shortcode].qodefSwiper          = qodefCore.qodefSwiper;
+	qodefCore.shortcodes[shortcode].qodefFsLightboxPopup = qodefCore.qodefFsLightboxPopup;
+	qodefCore.shortcodes[shortcode].qodefMasonryLayout   = qodefCore.qodefMasonryLayout;
 
 })( jQuery );

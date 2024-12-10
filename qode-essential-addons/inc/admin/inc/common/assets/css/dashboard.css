@@ -3218,7 +3218,7 @@
 }
 
 [class*=qodef-page-v4].qodef-options-admin .qodef-radio-group-holder.qodef-with-images > .qodef-inline img, [class*=qodef-page-v4].qodef-options-meta .qodef-radio-group-holder.qodef-with-images > .qodef-inline img, [class*=qodef-page-v4].qodef-options-front-end .qodef-radio-group-holder.qodef-with-images > .qodef-inline img {
-	max-width: 100%;
+	max-width: 70px;
 	height: 59px;
 }
 
@@ -3227,7 +3227,7 @@
 }
 
 [class*=qodef-page-v4].qodef-options-admin .qodef-radio-group-holder input[type="radio"] + img, [class*=qodef-page-v4].qodef-options-meta .qodef-radio-group-holder input[type="radio"] + img, [class*=qodef-page-v4].qodef-options-front-end .qodef-radio-group-holder input[type="radio"] + img {
-	border: 2px solid transparent;
+	border: 1px solid transparent;
 	border-radius: 4px;
 	transition: border-color 0.15s ease-in-out;
 }
@@ -3239,6 +3239,18 @@
 [class*=qodef-page-v4].qodef-options-admin .qodef-field-content:has(.qodef-with-images), [class*=qodef-page-v4].qodef-options-meta .qodef-field-content:has(.qodef-with-images), [class*=qodef-page-v4].qodef-options-front-end .qodef-field-content:has(.qodef-with-images) {
 	width: clamp(120px, 750px, 100%);
 	min-width: clamp(120px, 750px, 100%);
+}
+
+[class*=qodef-page-v4].qodef-options-admin .qodef-field-holder.qodef-with-border .qodef-radio-group-holder input[type="radio"] + img, [class*=qodef-page-v4].qodef-options-meta .qodef-field-holder.qodef-with-border .qodef-radio-group-holder input[type="radio"] + img, [class*=qodef-page-v4].qodef-options-front-end .qodef-field-holder.qodef-with-border .qodef-radio-group-holder input[type="radio"] + img {
+	border: 1px solid #bbbbbb;
+}
+
+[class*=qodef-page-v4].qodef-options-admin .qodef-field-holder.qodef-with-border .qodef-radio-group-holder input[type="radio"]:checked + img, [class*=qodef-page-v4].qodef-options-meta .qodef-field-holder.qodef-with-border .qodef-radio-group-holder input[type="radio"]:checked + img, [class*=qodef-page-v4].qodef-options-front-end .qodef-field-holder.qodef-with-border .qodef-radio-group-holder input[type="radio"]:checked + img {
+	border-color: #ee2852;
+}
+
+[class*=qodef-page-v4].qodef-options-admin .qodef-field-holder.qodef-large-img .qodef-radio-group-holder.qodef-with-images > .qodef-inline img, [class*=qodef-page-v4].qodef-options-meta .qodef-field-holder.qodef-large-img .qodef-radio-group-holder.qodef-with-images > .qodef-inline img, [class*=qodef-page-v4].qodef-options-front-end .qodef-field-holder.qodef-large-img .qodef-radio-group-holder.qodef-with-images > .qodef-inline img {
+	max-width: 89px;
 }
 
 [class*=qodef-page-v4].qodef-options-admin .qodef-yesno, [class*=qodef-page-v4].qodef-options-meta .qodef-yesno, [class*=qodef-page-v4].qodef-options-front-end .qodef-yesno {

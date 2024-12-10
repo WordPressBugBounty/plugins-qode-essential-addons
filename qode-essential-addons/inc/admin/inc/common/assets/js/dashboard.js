@@ -1329,7 +1329,7 @@
 				'ajaxSuccess',
 				function ( event, xhr, options ) {
 
-					if ( -1 === options.data.indexOf( 'action=add-tag' ) ) {
+					if ( ! thisHolder || ( options && options.data && -1 === options.data.indexOf( 'action=add-tag' ) ) ) {
 						return;
 					}
 

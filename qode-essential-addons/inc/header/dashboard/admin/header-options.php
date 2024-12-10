@@ -39,7 +39,10 @@ if ( ! function_exists( 'qode_essential_addons_add_header_options' ) ) {
 					'name'          => 'qodef_header_layout',
 					'title'         => esc_html__( 'Header Layout', 'qode-essential-addons' ),
 					'description'   => esc_html__( 'Choose a header layout to set for your website', 'qode-essential-addons' ),
-					'args'          => array( 'images' => true ),
+					'args'          => array(
+						'images'       => true,
+						'custom_class' => 'qodef-large-img',
+					),
 					'options'       => apply_filters( 'qode_essential_addons_filter_header_layout_option', $header_layout_options = array() ),
 					'default_value' => apply_filters( 'qode_essential_addons_filter_header_layout_default_option_value', '' ),
 				)
