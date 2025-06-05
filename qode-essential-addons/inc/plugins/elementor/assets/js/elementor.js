@@ -13,8 +13,8 @@
 			var isEditMode = Boolean( elementorFrontend.isEditMode() );
 
 			if ( isEditMode ) {
-				for ( var key in qodefCore.shortcodes ) {
-					for ( var keyChild in qodefCore.shortcodes[key] ) {
+				for ( var key in qodefEssentialCore.shortcodes ) {
+					for ( var keyChild in qodefEssentialCore.shortcodes[key] ) {
 						qodefElementor.reInitShortcode(
 							key,
 							keyChild
@@ -28,21 +28,21 @@
 				'frontend/element_ready/' + key + '.default',
 				function ( e ) {
 					// Check if object doesn't exist and print the module where is the error.
-					if ( typeof qodefCore.shortcodes[key][keyChild] === 'undefined' ) {
+					if ( typeof qodefEssentialCore.shortcodes[key][keyChild] === 'undefined' ) {
 						console.log( keyChild );
-					} else if ( typeof qodefCore.shortcodes[key][keyChild].createSlider === 'function' ) {
+					} else if ( typeof qodefEssentialCore.shortcodes[key][keyChild].createSlider === 'function' ) {
 						var $sliders = e.find( '.qodef-swiper-container' );
 						if ( $sliders.length ) {
 							$sliders.each(
 								function () {
-									qodefCore.shortcodes[key][keyChild].createSlider( $( this ) );
+									qodefEssentialCore.shortcodes[key][keyChild].createSlider( $( this ) );
 								}
 							);
 						}
-					} else if ( typeof qodefCore.shortcodes[key][keyChild].initItem === 'function' && e.find( '.qodef-shortcode' ).length ) {
-						qodefCore.shortcodes[key][keyChild].initItem( e.find( '.qodef-shortcode' ) );
+					} else if ( typeof qodefEssentialCore.shortcodes[key][keyChild].initItem === 'function' && e.find( '.qodef-shortcode' ).length ) {
+						qodefEssentialCore.shortcodes[key][keyChild].initItem( e.find( '.qodef-shortcode' ) );
 					} else {
-						qodefCore.shortcodes[key][keyChild].init();
+						qodefEssentialCore.shortcodes[key][keyChild].init();
 					}
 				}
 			);

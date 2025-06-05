@@ -1,18 +1,18 @@
 (function ( $ ) {
 	'use strict';
 
-	window.qodefCore     = {};
-	qodefCore.shortcodes = {};
+	window.qodefEssentialCore     = {};
+	qodefEssentialCore.shortcodes = {};
 
-	qodefCore.body         = $( 'body' );
-	qodefCore.html         = $( 'html' );
-	qodefCore.windowWidth  = $( window ).width();
-	qodefCore.windowHeight = $( window ).height();
-	qodefCore.scroll       = 0;
+	qodefEssentialCore.body         = $( 'body' );
+	qodefEssentialCore.html         = $( 'html' );
+	qodefEssentialCore.windowWidth  = $( window ).width();
+	qodefEssentialCore.windowHeight = $( window ).height();
+	qodefEssentialCore.scroll       = 0;
 
 	$( document ).ready(
 		function () {
-			qodefCore.scroll = $( window ).scrollTop();
+			qodefEssentialCore.scroll = $( window ).scrollTop();
 			qodefSwiper.init();
 			qodefFsLightboxPopup.init();
 			qodefInlinePageStyle.init();
@@ -21,14 +21,14 @@
 
 	$( window ).resize(
 		function () {
-			qodefCore.windowWidth  = $( window ).width();
-			qodefCore.windowHeight = $( window ).height();
+			qodefEssentialCore.windowWidth  = $( window ).width();
+			qodefEssentialCore.windowHeight = $( window ).height();
 		}
 	);
 
 	$( window ).scroll(
 		function () {
-			qodefCore.scroll = $( window ).scrollTop();
+			qodefEssentialCore.scroll = $( window ).scrollTop();
 		}
 	);
 
@@ -227,7 +227,7 @@
 		}
 	};
 
-	qodefCore.qodefSwiper = qodefSwiper;
+	qodefEssentialCore.qodefSwiper = qodefSwiper;
 
 	if ( typeof Object.assign !== 'function' ) {
 		Object.assign = function ( target ) {
@@ -327,7 +327,7 @@
 		},
 	};
 
-	qodefCore.qodefFsLightboxPopup = qodefFsLightboxPopup;
+	qodefEssentialCore.qodefFsLightboxPopup = qodefFsLightboxPopup;
 
 	var qodefInlinePageStyle = {
 		init: function () {
@@ -387,17 +387,17 @@
 		},
 	};
 
-	qodefCore.qodefWaitForImages = qodefWaitForImages;
+	qodefEssentialCore.qodefWaitForImages = qodefWaitForImages;
 
 	var qodefInfoFollow = {
 		init: function ( $holder, additionalClass = '' ) {
 			if ( $holder.length ) {
-				qodefCore.body.append( '<div class="qodef-e-content-follow ' + additionalClass + '"><div class="qodef-e-content"></div></div>' );
+				qodefEssentialCore.body.append( '<div class="qodef-e-content-follow ' + additionalClass + '"><div class="qodef-e-content"></div></div>' );
 
 				var $contentFollow = $( '.qodef-e-content-follow' ),
 					$content       = $contentFollow.find( '.qodef-e-content' );
 
-				if ( qodefCore.windowWidth > 1024 ) {
+				if ( qodefEssentialCore.windowWidth > 1024 ) {
 					$holder.each(
 						function () {
 							var $thisGallery = $( this );
@@ -410,7 +410,7 @@
 									$thisItem.on(
 										'mousemove',
 										function ( e ) {
-											if ( e.clientX + $contentFollow.width() + 20 > qodefCore.windowWidth ) {
+											if ( e.clientX + $contentFollow.width() + 20 > qodefEssentialCore.windowWidth ) {
 												$contentFollow.addClass( 'qodef-right' );
 											} else {
 												$contentFollow.removeClass( 'qodef-right' );
@@ -473,7 +473,7 @@
 		}
 	};
 
-	qodefCore.qodefInfoFollow = qodefInfoFollow;
+	qodefEssentialCore.qodefInfoFollow = qodefInfoFollow;
 
 })( jQuery );
 
@@ -563,7 +563,7 @@
 					e.preventDefault();
 					var $thisOpener = $( this );
 
-					if ( ! qodefCore.body.hasClass( 'qodef-fullscreen-menu--opened' ) ) {
+					if ( ! qodefEssentialCore.body.hasClass( 'qodef-fullscreen-menu--opened' ) ) {
 						qodefFullscreenMenu.openFullscreen( $thisOpener );
 
 						$fullscreenMenuClose.on(
@@ -605,11 +605,11 @@
 		},
 		openFullscreen: function ( $opener ) {
 			$opener.addClass( 'qodef--opened' ).attr( 'aria-expanded', 'true' );
-			qodefCore.body.removeClass( 'qodef-fullscreen-menu-animate--out' ).addClass( 'qodef-fullscreen-menu--opened qodef-fullscreen-menu-animate--in' );
+			qodefEssentialCore.body.removeClass( 'qodef-fullscreen-menu-animate--out' ).addClass( 'qodef-fullscreen-menu--opened qodef-fullscreen-menu-animate--in' );
 		},
 		closeFullscreen: function ( $opener ) {
 			$opener.removeClass( 'qodef--opened' ).attr( 'aria-expanded', 'false' );
-			qodefCore.body.removeClass( 'qodef-fullscreen-menu--opened qodef-fullscreen-menu-animate--in' ).addClass( 'qodef-fullscreen-menu-animate--out' );
+			qodefEssentialCore.body.removeClass( 'qodef-fullscreen-menu--opened qodef-fullscreen-menu-animate--in' ).addClass( 'qodef-fullscreen-menu-animate--out' );
 			$( 'nav.qodef-fullscreen-menu ul.sub_menu' ).slideUp( 200 );
 		},
 		clickItemWithChild: function ( thisItem ) {
@@ -710,13 +710,13 @@
 
 	var qodefHeaderScrollAppearance = {
 		appearanceType: function () {
-			return qodefCore.body.attr( 'class' ).indexOf( 'qodef-header-appearance--' ) !== -1 ? qodefCore.body.attr( 'class' ).match( /qodef-header-appearance--([\w]+)/ )[1] : '';
+			return qodefEssentialCore.body.attr( 'class' ).indexOf( 'qodef-header-appearance--' ) !== -1 ? qodefEssentialCore.body.attr( 'class' ).match( /qodef-header-appearance--([\w]+)/ )[1] : '';
 		},
 		init: function () {
 			var appearanceType = this.appearanceType();
 
 			if ( appearanceType !== '' && appearanceType !== 'none' ) {
-				qodefCore[appearanceType + 'HeaderAppearance']();
+				qodefEssentialCore[appearanceType + 'HeaderAppearance']();
 			}
 		}
 	};
@@ -838,7 +838,7 @@
 				$masonryItemSize
 			);
 
-			qodefCore.qodefWaitForImages.check(
+			qodefEssentialCore.qodefWaitForImages.check(
 				$masonry,
 				function () {
 					if ( typeof $masonry.isotope === 'function' && ! $masonry.hasClass( 'qodef--masonry-init' ) ) {
@@ -876,7 +876,7 @@
 				$landscapeItem  = $holder.find( '.qodef-item--landscape' ),
 				$portraitItem   = $holder.find( '.qodef-item--portrait' ),
 				$hugeSquareItem = $holder.find( '.qodef-item--huge-square' ),
-				isMobileScreen  = qodefCore.windowWidth <= 680;
+				isMobileScreen  = qodefEssentialCore.windowWidth <= 680;
 
 			if ( ! $holder.parent().hasClass( 'qodef-col-num--1' ) ) {
 
@@ -974,7 +974,7 @@
 		}
 	};
 
-	qodefCore.qodefMasonryLayout = qodefMasonryLayout;
+	qodefEssentialCore.qodefMasonryLayout = qodefMasonryLayout;
 
 })( jQuery );
 
@@ -1001,7 +1001,7 @@
 
 					var $clickedOpener = $( this );
 
-					if ( ! qodefCore.body.hasClass( 'qodef-side-area--opened' ) ) {
+					if ( ! qodefEssentialCore.body.hasClass( 'qodef-side-area--opened' ) ) {
 						qodefSideArea.openSideArea( $clickedOpener );
 
 						$( document ).keyup(
@@ -1034,7 +1034,7 @@
 
 			$( '.qodef-side-area-cover' ).remove();
 			$wrapper.prepend( '<div class="qodef-side-area-cover"/>' );
-			qodefCore.body.removeClass( 'qodef-side-area-animate--out' ).addClass( 'qodef-side-area--opened qodef-side-area-animate--in' );
+			qodefEssentialCore.body.removeClass( 'qodef-side-area-animate--out' ).addClass( 'qodef-side-area--opened qodef-side-area-animate--in' );
 
 			$( '.qodef-side-area-cover' ).on(
 				'click',
@@ -1046,7 +1046,7 @@
 
 			$( window ).scroll(
 				function () {
-					if ( Math.abs( qodefCore.scroll - currentScroll ) > 400 ) {
+					if ( Math.abs( qodefEssentialCore.scroll - currentScroll ) > 400 ) {
 						qodefSideArea.closeSideArea();
 					}
 				}
@@ -1054,7 +1054,7 @@
 		},
 		closeSideArea: function () {
 			$( 'a.qodef-side-area-opener' ).attr( 'aria-expanded', 'false' );
-			qodefCore.body.removeClass( 'qodef-side-area--opened qodef-side-area-animate--in' ).addClass( 'qodef-side-area-animate--out' );
+			qodefEssentialCore.body.removeClass( 'qodef-side-area--opened qodef-side-area-animate--in' ).addClass( 'qodef-side-area-animate--out' );
 		},
 		openerHoverColor: function ( $opener ) {
 			if ( typeof $opener.data( 'hover-color' ) !== 'undefined' ) {
@@ -1228,29 +1228,29 @@
 
 	var shortcode = 'qode_essential_addons_blog_list';
 
-	qodefCore.shortcodes[shortcode] = {};
+	qodefEssentialCore.shortcodes[shortcode] = {};
 
 	$( document ).ready(
 		function () {
-			qodefCoreResizeIframes.init();
+			qodefEssentialCoreResizeIframes.init();
 		}
 	);
 
 	$( window ).resize(
 		function () {
-			qodefCoreResizeIframes.init();
+			qodefEssentialCoreResizeIframes.init();
 		}
 	);
 
 	/**
 	 * Resize oembed iframes
 	 */
-	var qodefCoreResizeIframes = {
+	var qodefEssentialCoreResizeIframes = {
 		init: function () {
 			var $holder = $( '.qodef-blog-shortcode' );
 
 			if ( $holder.length ) {
-				qodefCoreResizeIframes.resize( $holder );
+				qodefEssentialCoreResizeIframes.resize( $holder );
 			}
 		},
 		resize: function ( $holder ) {
@@ -1272,10 +1272,10 @@
 		}
 	};
 
-	qodefCore.shortcodes[shortcode].qodefSwiper            = qodefCore.qodefSwiper;
-	qodefCore.shortcodes[shortcode].qodefFsLightboxPopup   = qodefCore.qodefFsLightboxPopup;
-	qodefCore.shortcodes[shortcode].qodefMasonryLayout     = qodefCore.qodefMasonryLayout;
-	qodefCore.shortcodes[shortcode].qodefCoreResizeIframes = qodefCoreResizeIframes;
+	qodefEssentialCore.shortcodes[shortcode].qodefSwiper            = qodefEssentialCore.qodefSwiper;
+	qodefEssentialCore.shortcodes[shortcode].qodefFsLightboxPopup   = qodefEssentialCore.qodefFsLightboxPopup;
+	qodefEssentialCore.shortcodes[shortcode].qodefMasonryLayout     = qodefEssentialCore.qodefMasonryLayout;
+	qodefEssentialCore.shortcodes[shortcode].qodefEssentialCoreResizeIframes = qodefEssentialCoreResizeIframes;
 
 })( jQuery );
 
@@ -1287,17 +1287,17 @@
 
 			var $headerMargin = parseInt( $header.css( 'margin-top' ) ) + parseInt( $header.css( 'margin-bottom' ) );
 
-			if ( qodefCore.windowWidth > 1024 ) {
+			if ( qodefEssentialCore.windowWidth > 1024 ) {
 
 				var $elementorSectionBeforeHeader      = $( '.qodef-elementor-section-before-header' );
 				var elementorSectionBeforeHeaderHeight = $elementorSectionBeforeHeader.length ? $elementorSectionBeforeHeader.height() : 0;
 
-				if ( qodefCore.scroll <= elementorSectionBeforeHeaderHeight ) {
-					qodefCore.body.removeClass( 'qodef-header--fixed-display' );
+				if ( qodefEssentialCore.scroll <= elementorSectionBeforeHeaderHeight ) {
+					qodefEssentialCore.body.removeClass( 'qodef-header--fixed-display' );
 					$pageOuter.css( 'padding-top', '0' );
 					$header.css( 'top', '' );
 				} else {
-					qodefCore.body.addClass( 'qodef-header--fixed-display' );
+					qodefEssentialCore.body.addClass( 'qodef-header--fixed-display' );
 					$pageOuter.css( 'padding-top', parseInt( qodefGlobal.vars.headerHeight + qodefGlobal.vars.topAreaHeight + $headerMargin ) + 'px' );
 					$header.css( 'top', parseInt( qodefGlobal.vars.topAreaHeight + qodefGlobal.vars.adminBarHeight ) + 'px' );
 				}
@@ -1305,7 +1305,7 @@
 		},
 		init: function () {
 
-			if ( ! qodefCore.body.hasClass( 'qodef-header--vertical' ) ) {
+			if ( ! qodefEssentialCore.body.hasClass( 'qodef-header--vertical' ) ) {
 				var $pageOuter = $( '#qodef-page-outer' ),
 					$header    = $( '#qodef-page-header' );
 
@@ -1327,7 +1327,7 @@
 		}
 	};
 
-	qodefCore.fixedHeaderAppearance = fixedHeaderAppearance.init;
+	qodefEssentialCore.fixedHeaderAppearance = fixedHeaderAppearance.init;
 
 })( jQuery );
 
@@ -1364,7 +1364,7 @@
 			}
 		},
 		setVisibility: function ( displayAmount ) {
-			var isStickyHidden = qodefCore.scroll < displayAmount;
+			var isStickyHidden = qodefEssentialCore.scroll < displayAmount;
 
 			if ( stickyHeaderAppearance.header.hasClass( 'qodef-appearance--up' ) ) {
 				var currentDocYScroll = $( document ).scrollTop();
@@ -1378,14 +1378,14 @@
 		},
 		showHideHeader: function ( isStickyHidden ) {
 			if ( isStickyHidden ) {
-				qodefCore.body.removeClass( 'qodef-header--sticky-display' );
+				qodefEssentialCore.body.removeClass( 'qodef-header--sticky-display' );
 			} else {
-				qodefCore.body.addClass( 'qodef-header--sticky-display' );
+				qodefEssentialCore.body.addClass( 'qodef-header--sticky-display' );
 			}
 		},
 	};
 
-	qodefCore.stickyHeaderAppearance = stickyHeaderAppearance.init;
+	qodefEssentialCore.stickyHeaderAppearance = stickyHeaderAppearance.init;
 
 })( jQuery );
 
@@ -1405,7 +1405,7 @@
 			if ( $searchOpener.length ) {
 				$searchOpener.each(
 					function () {
-						var $searchForm  = $( this ).closest( '.qodef-header-sticky, #qodef-page-header' ).find( '.qodef-search-cover-form' ),
+						var $searchForm  = $( this ).closest( '.qodef-header-sticky, #qodef-page-header, #qodef-top-area' ).find( '.qodef-search-cover-form' ),
 							$searchClose = $searchForm.find( '.qodef-m-close' );
 
 						if ( $searchForm.length ) {
@@ -1429,8 +1429,9 @@
 			}
 		},
 		openCoversHeader: function ( $searchForm ) {
-			qodefCore.body.addClass( 'qodef-covers-search--opened qodef-covers-search--fadein' );
-			qodefCore.body.removeClass( 'qodef-covers-search--fadeout' );
+			qodefEssentialCore.body.addClass( 'qodef-covers-search--opened' );
+			$searchForm.addClass( 'qodef-covers-search--fadein' );
+			$searchForm.removeClass( 'qodef-covers-search--fadeout' );
 
 			setTimeout(
 				function () {
@@ -1440,14 +1441,15 @@
 			);
 		},
 		closeCoversHeader: function ( $searchForm ) {
-			qodefCore.body.removeClass( 'qodef-covers-search--opened qodef-covers-search--fadein' );
-			qodefCore.body.addClass( 'qodef-covers-search--fadeout' );
+			qodefEssentialCore.body.removeClass( 'qodef-covers-search--opened' );
+			$searchForm.removeClass( 'qodef-covers-search--fadein' );
+			$searchForm.addClass( 'qodef-covers-search--fadeout' );
 
 			setTimeout(
 				function () {
 					$searchForm.find( '.qodef-m-form-field' ).val( '' );
 					$searchForm.find( '.qodef-m-form-field' ).blur();
-					qodefCore.body.removeClass( 'qodef-covers-search--fadeout' );
+					$searchForm.removeClass( 'qodef-covers-search--fadeout' );
 				},
 				300
 			);
@@ -1504,12 +1506,24 @@
 (function ( $ ) {
 	'use strict';
 
+	var shortcode = 'qode_essential_addons_product_list';
+
+	qodefEssentialCore.shortcodes[shortcode]                      = {};
+	qodefEssentialCore.shortcodes[shortcode].qodefSwiper          = qodefEssentialCore.qodefSwiper;
+	qodefEssentialCore.shortcodes[shortcode].qodefFsLightboxPopup = qodefEssentialCore.qodefFsLightboxPopup;
+	qodefEssentialCore.shortcodes[shortcode].qodefMasonryLayout   = qodefEssentialCore.qodefMasonryLayout;
+
+})( jQuery );
+
+(function ( $ ) {
+	'use strict';
+
 	var shortcode = 'qode_essential_addons_portfolio_list';
 
-	qodefCore.shortcodes[shortcode]                      = {};
-	qodefCore.shortcodes[shortcode].qodefSwiper          = qodefCore.qodefSwiper;
-	qodefCore.shortcodes[shortcode].qodefFsLightboxPopup = qodefCore.qodefFsLightboxPopup;
-	qodefCore.shortcodes[shortcode].qodefMasonryLayout   = qodefCore.qodefMasonryLayout;
+	qodefEssentialCore.shortcodes[shortcode]                      = {};
+	qodefEssentialCore.shortcodes[shortcode].qodefSwiper          = qodefEssentialCore.qodefSwiper;
+	qodefEssentialCore.shortcodes[shortcode].qodefFsLightboxPopup = qodefEssentialCore.qodefFsLightboxPopup;
+	qodefEssentialCore.shortcodes[shortcode].qodefMasonryLayout   = qodefEssentialCore.qodefMasonryLayout;
 
 	$( document ).ready(
 		function () {
@@ -1531,23 +1545,11 @@
 		},
 		initItem: function ( $thisHolder ) {
 			if ( $thisHolder.hasClass( 'qodef-item-layout--info-follow' ) ) {
-				qodefCore.qodefInfoFollow.init( $thisHolder );
+				qodefEssentialCore.qodefInfoFollow.init( $thisHolder );
 			}
 		}
 	};
 
-	qodefCore.shortcodes[shortcode].qodefFloatingPortfolio = qodefFloatingPortfolio;
-
-})( jQuery );
-
-(function ( $ ) {
-	'use strict';
-
-	var shortcode = 'qode_essential_addons_product_list';
-
-	qodefCore.shortcodes[shortcode]                      = {};
-	qodefCore.shortcodes[shortcode].qodefSwiper          = qodefCore.qodefSwiper;
-	qodefCore.shortcodes[shortcode].qodefFsLightboxPopup = qodefCore.qodefFsLightboxPopup;
-	qodefCore.shortcodes[shortcode].qodefMasonryLayout   = qodefCore.qodefMasonryLayout;
+	qodefEssentialCore.shortcodes[shortcode].qodefFloatingPortfolio = qodefFloatingPortfolio;
 
 })( jQuery );
