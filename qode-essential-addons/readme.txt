@@ -2,7 +2,7 @@
 Contributors: qodeinteractive
 Tags: addons, elementor, templates, portfolio, woocommerce
 Requires at least: 5.0
-Tested up to: 6.7
+Tested up to: 6.9
 Requires PHP: 5.6
 Stable tag: 1.6.6
 License: GPLv2 or later
