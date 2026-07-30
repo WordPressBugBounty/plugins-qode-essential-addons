@@ -2,9 +2,9 @@
 Contributors: qodeinteractive
 Tags: addons, elementor, templates, portfolio, woocommerce
 Requires at least: 5.0
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 5.6
-Stable tag: 1.6.6
+Stable tag: 1.6.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,6 +79,9 @@ From wordpress.org
 4. Enjoy :)
 
 == Changelog ==
+
+= 1.6.7 - 30-07-2026 =
+- Improved css animation rendering
 
 = 1.6.6 - 05-06-2025 =
 - Improved search opener to support 'Top Header' area
