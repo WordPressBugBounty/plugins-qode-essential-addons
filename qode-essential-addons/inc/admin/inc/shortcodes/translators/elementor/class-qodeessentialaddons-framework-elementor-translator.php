@@ -636,18 +636,29 @@ class QodeEssentialAddons_Framework_Elementor_Translator {
 
 		if ( ! empty( $params ) ) {
 			foreach ( $params as $key => $value ) {
-				if ( is_array( $value ) || 'shortcode_snippet' === $key ) {
+				if ( is_array( $value ) || 'shortcode_snippet' === $key || ! is_scalar( $value ) ) {
 					continue;
 				}
 
-				$atts[] = $key . '="' . esc_attr( $value ) . '"';
+				// Elementor copies settings whose keys are not registered controls.
+				// Those keys are printed inside the textarea, so only plain attribute names are allowed.
+				if ( ! is_string( $key ) || ! preg_match( '/^[a-zA-Z0-9_-]+$/', $key ) ) {
+					continue;
+				}
+
+				$atts[] = $key . '="' . (string) $value . '"';
 			}
 		}
 
 		return sprintf(
-			'<textarea rows="3" readonly>[%s %s]</textarea>',
-			$shortcode_object->get_base(),
-			implode( ' ', $atts )
+			'<textarea rows="3" readonly>%s</textarea>',
+			esc_textarea(
+				sprintf(
+					'[%s %s]',
+					$shortcode_object->get_base(),
+					implode( ' ', $atts )
+				)
+			)
 		);
 	}
 

@@ -2,9 +2,9 @@
 Contributors: qodeinteractive
 Tags: addons, elementor, templates, portfolio, woocommerce
 Requires at least: 5.0
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 5.6
-Stable tag: 1.6.7
+Stable tag: 1.6.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,6 +79,9 @@ From wordpress.org
 4. Enjoy :)
 
 == Changelog ==
+
+= 1.6.8 - 23-11-2026 =
+- Improved Cross Site Scripting (XSS) vulnerability
 
 = 1.6.7 - 30-07-2026 =
 - Improved css animation rendering

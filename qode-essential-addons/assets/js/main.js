@@ -175,13 +175,37 @@
 		},
 		getSliderDatas: function ( $holder ) {
 			var dataList    = $holder.data(),
-				returnValue = {};
+				returnValue = {},
+				// Swiper writes these module options into the page with innerHTML.
+				// data-* on the slider can come from untrusted content, so never pass them through.
+				blockedKeys = {
+					pagination: true,
+					scrollbar: true,
+					virtual: true,
+					a11y: true,
+					navigation: true,
+					on: true
+				};
 
 			for ( var property in dataList ) {
 				if ( dataList.hasOwnProperty( property ) ) {
-					// It's required to be different from data options because da options are all options from shortcode element.
-					if ( property !== 'options' && typeof dataList[property] !== 'undefined' && dataList[property] !== '' ) {
-						returnValue[property] = dataList[property];
+					var value = dataList[property];
+
+					// `options` is parsed separately. Objects are JSON data attributes and must not replace Swiper modules.
+					if ( property === 'options' || blockedKeys[property] || value === null || typeof value === 'object' ) {
+						continue;
+					}
+
+					if ( property === '__proto__' || property === 'constructor' || property === 'prototype' ) {
+						continue;
+					}
+
+					if ( typeof value === 'string' && /[<>"']/.test( value ) ) {
+						continue;
+					}
+
+					if ( typeof value !== 'undefined' && value !== '' ) {
+						returnValue[property] = value;
 					}
 				}
 			}
