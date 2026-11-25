@@ -5,7 +5,7 @@
 * Description: Qode Essential Addons enhances themes with various functionalities- Portfolio post type, Portfolio List, Blog List & Product List shortcodes and more.
 * Author: Qode Interactive
 * Author URI: https://qodeinteractive.com/
-* Version: 1.6.8
+* Version: 1.6.9
 * Text Domain: qode-essential-addons
 */
 
@@ -167,6 +167,7 @@ if ( ! class_exists( 'QodeEssentialAddons' ) ) {
 					'iconArrowLeft'  => qode_essential_addons_get_svg_icon( 'slider-arrow-left' ),
 					'iconArrowRight' => qode_essential_addons_get_svg_icon( 'slider-arrow-right' ),
 					'iconClose'      => qode_essential_addons_get_svg_icon( 'close' ),
+					'sliderToken'    => qode_essential_addons_get_slider_token(),
 				)
 			);
 

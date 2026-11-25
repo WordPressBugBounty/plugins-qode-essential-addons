@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $gallery_meta = get_post_meta( get_the_ID(), 'qodef_post_format_gallery_images', true );
 
 if ( ! empty( $gallery_meta ) ) { ?>
-	<div class="qodef-e-media-gallery qodef-swiper-container">
+	<div class="qodef-e-media-gallery qodef-swiper-container" <?php echo qode_essential_addons_get_slider_marker_attr(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 		<div class="swiper-wrapper">
 			<?php
 			$gallery_images = explode( ',', $gallery_meta );

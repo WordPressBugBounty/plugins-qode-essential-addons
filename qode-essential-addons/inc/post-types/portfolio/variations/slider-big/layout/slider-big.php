@@ -24,7 +24,7 @@ do_action( 'qode_essential_addons_action_before_portfolio_single_item' );
 					</div>
 				</div>
 			</div>
-			<div class="qodef-media qodef-swiper-container qodef--slider">
+			<div class="qodef-media qodef-swiper-container qodef--slider" <?php echo qode_essential_addons_get_slider_marker_attr(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 				<div class="swiper-wrapper">
 					<?php qode_essential_addons_template_part( 'post-types/portfolio', 'templates/parts/post-info/media', 'slider' ); ?>
 				</div>

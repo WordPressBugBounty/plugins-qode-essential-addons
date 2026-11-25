@@ -16,6 +16,41 @@ if ( ! function_exists( 'qode_essential_addons_is_qode_theme_installed' ) ) {
 	}
 }
 
+if ( ! function_exists( 'qode_essential_addons_get_slider_token' ) ) {
+	/**
+	 * Site-specific marker for sliders rendered by this plugin.
+	 *
+	 * The value is emitted on a non-data attribute. Post KSES keeps data-* and class,
+	 * so a comment cannot store this attribute.
+	 *
+	 * @return string
+	 */
+	function qode_essential_addons_get_slider_token() {
+		return substr( wp_hash( 'qode-essential-addons-slider-marker' ), 0, 20 );
+	}
+}
+
+if ( ! function_exists( 'qode_essential_addons_get_slider_marker_attr' ) ) {
+	/**
+	 * Attribute that marks a plugin-rendered Swiper container.
+	 *
+	 * @param string|array $classes Holder classes. Empty string always prints the marker.
+	 *
+	 * @return string
+	 */
+	function qode_essential_addons_get_slider_marker_attr( $classes = '' ) {
+		if ( is_array( $classes ) ) {
+			$classes = implode( ' ', $classes );
+		}
+
+		if ( '' !== $classes && false === strpos( (string) $classes, 'qodef-swiper-container' ) ) {
+			return '';
+		}
+
+		return 'qodef-slider="' . esc_attr( qode_essential_addons_get_slider_token() ) . '"';
+	}
+}
+
 if ( ! function_exists( 'qode_essential_addons_list_sc_template_part' ) ) {
 	/**
 	 * Echo module template part.
@@ -498,7 +533,7 @@ if ( ! function_exists( 'qode_essential_addons_print_custom_css_in_footer' ) ) {
 		}
 
 		if ( '' !== $full_style ) {
-			echo '<div id="qode-essential-addons-page-inline-style" data-style="' . esc_attr( $full_style ) . '"></div>';
+			echo '<div id="qode-essential-addons-page-inline-style" ' . qode_essential_addons_get_slider_marker_attr() . ' data-style="' . esc_attr( $full_style ) . '"></div>';
 		}
 	}
 

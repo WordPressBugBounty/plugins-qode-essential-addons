@@ -37,7 +37,11 @@
 	 */
 	var qodefSwiper = {
 		init: function ( settings ) {
-			this.holder = $( '.qodef-swiper-container' );
+			this.holder = $( '.qodef-swiper-container' ).filter(
+				function () {
+					return qodefSwiper.isTrustedSlider( $( this ) );
+				}
+			);
 
 			// Allow overriding the default config.
 			$.extend(
@@ -54,6 +58,10 @@
 			}
 		},
 		createSlider: function ( $holder ) {
+			if ( ! qodefSwiper.isTrustedSlider( $holder ) ) {
+				return;
+			}
+
 			var options = qodefSwiper.getOptions( $holder ),
 				events  = qodefSwiper.getEvents(
 					$holder,
@@ -70,6 +78,27 @@
 				);
 			}
 		},
+		isTrustedSlider: function ( $holder ) {
+			var token = window.qodefGlobal && qodefGlobal.vars && qodefGlobal.vars.sliderToken;
+
+			return !! token && $holder && $holder.length && String( $holder.attr( 'qodef-slider' ) ) === String( token );
+		},
+		isSafeSliderId: function ( value ) {
+			if ( typeof value === 'number' && isFinite( value ) ) {
+				value = String( value );
+			}
+
+			return typeof value === 'string' && /^[A-Za-z0-9_-]+$/.test( value );
+		},
+		getOutsideNavigationEl: function ( classPrefix, uniqueId ) {
+			var id = typeof uniqueId === 'number' && isFinite( uniqueId ) ? String( uniqueId ) : uniqueId;
+
+			if ( ! qodefSwiper.isSafeSliderId( id ) ) {
+				return null;
+			}
+
+			return document.querySelector( '.' + classPrefix + id );
+		},
 		getOptions: function ( $holder ) {
 			var sliderOptions     = typeof $holder.data( 'options' ) !== 'undefined' ? $holder.data( 'options' ) : {},
 				spaceBetween      = sliderOptions.spaceBetween !== undefined && sliderOptions.spaceBetween !== '' ? sliderOptions.spaceBetween : 0,
@@ -82,8 +111,8 @@
 				speedAnimation    = sliderOptions.speedAnimation !== undefined && sliderOptions.speedAnimation !== '' ? parseInt( sliderOptions.speedAnimation, 10 ) : 800,
 				customStages      = sliderOptions.customStages !== undefined && sliderOptions.customStages !== '' ? sliderOptions.customStages : false,
 				outsideNavigation = sliderOptions.outsideNavigation !== undefined && sliderOptions.outsideNavigation === 'yes',
-				nextNavigation    = outsideNavigation ? '.swiper-button-next-' + sliderOptions.unique : ($holder.find( '.swiper-button-next' ).length ? $holder.find( '.swiper-button-next' )[0] : null),
-				prevNavigation    = outsideNavigation ? '.swiper-button-prev-' + sliderOptions.unique : ($holder.find( '.swiper-button-prev' ).length ? $holder.find( '.swiper-button-prev' )[0] : null),
+				nextNavigation    = outsideNavigation ? qodefSwiper.getOutsideNavigationEl( 'swiper-button-next-', sliderOptions.unique ) : ($holder.find( '.swiper-button-next' ).length ? $holder.find( '.swiper-button-next' )[0] : null),
+				prevNavigation    = outsideNavigation ? qodefSwiper.getOutsideNavigationEl( 'swiper-button-prev-', sliderOptions.unique ) : ($holder.find( '.swiper-button-prev' ).length ? $holder.find( '.swiper-button-prev' )[0] : null),
 				pagination        = $holder.find( '.swiper-pagination' )[0];
 
 			if ( autoplay !== false && speed !== 5000 ) {
@@ -355,15 +384,38 @@
 
 	var qodefInlinePageStyle = {
 		init: function () {
-			this.holder = $( '#qode-essential-addons-page-inline-style' );
+			var token   = window.qodefGlobal && qodefGlobal.vars && qodefGlobal.vars.sliderToken,
+				holders = document.querySelectorAll( '[id="qode-essential-addons-page-inline-style"]' ),
+				holder  = null,
+				index;
 
-			if ( this.holder.length ) {
-				var style = this.holder.data( 'style' );
+			if ( ! token || ! holders.length ) {
+				return;
+			}
 
-				if ( style.length ) {
-					$( 'head' ).append( '<style type="text/css">' + style + '</style>' );
+			for ( index = 0; index < holders.length; index++ ) {
+				if ( holders[ index ].getAttribute( 'qodef-slider' ) === String( token ) ) {
+					holder = holders[ index ];
+					break;
 				}
 			}
+
+			if ( ! holder ) {
+				return;
+			}
+
+			var style = holder.getAttribute( 'data-style' );
+
+			if ( ! style ) {
+				return;
+			}
+
+			// textContent keeps the value inside the style element. Building '<style>' + value
+			// lets a stored data-style close the tag and run markup.
+			var styleElement = document.createElement( 'style' );
+			styleElement.type = 'text/css';
+			styleElement.textContent = style;
+			document.head.appendChild( styleElement );
 		}
 	};
 
